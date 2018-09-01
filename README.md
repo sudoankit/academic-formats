@@ -1,6 +1,44 @@
 # academic-formats
 Tips and tricks for formatting while submitting to various conferences and journals for `LaTeX` typesetting only.
 
+## arXiv
+
+arXiv is immesely popular as most of the papers are submitted as preprints. Submitting a paper/article can be quite irritating if you're doing it for the first time. 
+
+These rules especially are going to discourage you submit your article on arXiv.
+
+1. A PDF file created from a TeX/LaTeX file will be rejected.
+2. Bibliography doesn't work with `.bib` file, you'll need a `.bbl` file.
+3. `.tex` source with images, bibliography is preferred.
+
+
+### Template: 
+
+Anything is fine as long they compile.
+
+### Quickstart
+
+#### Create Locally
+
+- Create your document, eg. `chickenregression.tex` in a folder, say `arxiv priori`
+- Add all images, `chickenregression.bib` file, anything extra such as `.sty` into this folder, `arxiv priori`.
+- Run `pdflatex chickenregression.tex` **once**. This won't generate table of contents, etc but will give you `.aux`, `.toc`, etc
+- Run `bibtex chickenregression.bib`, **once**. This will generate the coveted, `.bbl` file.
+- Run `pdflatex chickenregression.tex` **twice**. 
+
+Done, your PDF is ready.
+
+#### Submit to arXiv
+
+- Upload **ONLY** `chickenregression.tex`, accompanying figures, prefarable in `.png/.jpg` and `chickenregression.bbl`. The name of bibliography (`.bbl`) and article (`.tex`) need to be same!
+- Submit! Follow the steps to check and fill the metadata.
+
+That's all.
+
+Caveats:
+
+- For `pdflatex` processing by set the flag `\pdfoutput=1` within the **first 5 lines of the preamble** of the main `.tex` file to ensure it works fine.
+
 ## Computer Science Conferences/Journals
 
 ### IEEE Transaction
@@ -132,6 +170,8 @@ Future edits:
 ### UAI
 
 ### CoRL
+
+### PLoS
 
 ---
 
